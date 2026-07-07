@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { HomeIcon, MessageSquareIcon, BarChart3Icon } from "lucide-react"
+import { HomeIcon, MessageSquareIcon, BarChart3Icon, GaugeIcon } from "lucide-react"
 import {
   Sidebar,
   SidebarContent,
@@ -27,8 +27,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <Sidebar {...props}>
-      <SidebarHeader className="p-4 text-lg font-semibold">
-        Pilotage groupe
+      <SidebarHeader className="flex-row items-center p-4">
+        <span className="text-lg font-semibold">Pilotage groupe</span>
+        <GaugeIcon className="size-5 text-muted-foreground" />
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
@@ -44,6 +45,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton
                       isActive={isActive}
+                      className="text-base"
                       render={<Link href={item.url} />}
                     >
                       <item.icon />
