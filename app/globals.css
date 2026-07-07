@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-outfit);
+
+  --color-background: #F0F0F0;
+  --color-sidebar: #E0E0E0;
+
+  --color-raw: #E0E0E0;
+  --color-raw-alt: #D0D0D0;
+
+  --color-hover: #D0D0D0;
+
+  --color-text: #222222;
+  --color-muted: #555555;
+
+  --color-border: #B0B0B0;
+
+  --color-blue: #0033FF;
+  --color-violet: #AE3BFA;
+  --color-violet-dark: #5404D5;
+  --color-pink: #FC3AC9;
+}
