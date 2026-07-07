@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Outfit } from "next/font/google";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Pilotage groupe",
@@ -18,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${outfit.variable} h-full antialiased`}>
+    <html lang="fr" className={cn("h-full", "antialiased", outfit.variable)}>
       <body className="flex flex-col min-h-full font-sans bg-background">{children}</body>
     </html>
   );
