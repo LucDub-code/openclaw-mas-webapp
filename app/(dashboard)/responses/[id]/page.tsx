@@ -8,13 +8,14 @@ import "@/app/(dashboard)/markdown.css"
 
 export const dynamic = "force-dynamic"
 
-type Report = {
+type Response = {
   id: number
   date: string
+  question: string
   contenu: string
 }
 
-export default async function ReportPage({
+export default async function ResponsePage({
   params,
 }: {
   params: Promise<{ id: string }>
@@ -23,28 +24,30 @@ export default async function ReportPage({
   if (!/^\d+$/.test(id)) notFound()
 
   const rows = (await sql`
-    SELECT id, date, contenu
-    FROM rapport.document
+    SELECT id, date, question, contenu
+    FROM repondeur.reponse
     WHERE id = ${id}
-  `) as Report[]
+  `) as Response[]
 
-  const report = rows[0]
-  if (!report) notFound()
+  const response = rows[0]
+  if (!response) notFound()
 
   return (
     <div className="mx-auto max-w-3xl">
       <Button
-        render={<Link href="/" />}
+        render={<Link href="/responses" />}
         nativeButton={false}
         variant="outline"
         size="sm"
         className="mt-6"
       >
-        ← Retour aux rapports
+        ← Retour aux réponses
       </Button>
 
+      <h1 className="text-2xl font-semibold mt-[1.6em] mx-0 mb-[0.6em]">{response.question}</h1>
+
       <article className="markdown">
-        <Markdown remarkPlugins={[remarkGfm]}>{report.contenu}</Markdown>
+        <Markdown remarkPlugins={[remarkGfm]}>{response.contenu}</Markdown>
       </article>
     </div>
   )

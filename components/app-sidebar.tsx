@@ -38,7 +38,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               {navItems.map((item) => {
                 const isActive =
                   item.url === "/"
-                    ? pathname === "/"
+                    ? pathname === "/" || pathname.startsWith("/reports")
                     : pathname.startsWith(item.url)
 
                 return (
