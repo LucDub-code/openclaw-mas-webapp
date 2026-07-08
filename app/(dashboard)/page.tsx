@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { sql } from "@/lib/db"
+import { Badge } from "@/components/ui/badge"
 
 export const dynamic = "force-dynamic"
 
@@ -25,17 +26,20 @@ export default async function Home() {
             key={report.id}
             className={index % 2 === 0 ? "bg-row" : "bg-row-alt"}
           >
-            <Link
-              href={`/reports/${report.id}`}
-              className="block px-4 py-3 hover:underline"
-            >
-              Rapport consolidé du{" "}
-              {new Date(report.date).toLocaleDateString("fr-FR", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })}
-            </Link>
+            <div className="flex items-center justify-between px-4 py-3">
+              <Link
+                href={`/reports/${report.id}`}
+                className="hover:underline"
+              >
+                Rapport consolidé du{" "}
+                {new Date(report.date).toLocaleDateString("fr-FR", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })}
+              </Link>
+              {index === 0 && <Badge>nouveau</Badge>}
+            </div>
           </li>
         ))}
       </ul>

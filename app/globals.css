@@ -3,7 +3,7 @@
 @import "shadcn/tailwind.css";
 
 @theme inline {
-  --font-sans: var(--font-outfit);
+  --font-sans: var(--font-golos-text);
   --color-row: var(--row);
   --color-row-alt: var(--row-alt);
   --color-hover: var(--hover);
