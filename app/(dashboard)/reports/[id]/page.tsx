@@ -39,7 +39,6 @@ export default async function ReportPage({
         nativeButton={false}
         variant="outline"
         size="sm"
-        className="mt-6"
       >
         <ArrowLeft />
         Retour aux rapports

@@ -40,7 +40,6 @@ export default async function ResponsePage({
         nativeButton={false}
         variant="outline"
         size="sm"
-        className="mt-6"
       >
         <ArrowLeft />
         Retour aux réponses
