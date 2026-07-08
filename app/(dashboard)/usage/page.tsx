@@ -5,6 +5,9 @@ import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from "@/components/ui/table"
 import { sql } from "@/lib/db"
+import Link from "next/link"
+import { buttonVariants } from "@/components/ui/button"
+import { ArrowRight } from "lucide-react"
 
 export const dynamic = "force-dynamic"
 
@@ -48,6 +51,7 @@ export default async function UsagePage() {
                 <TableHead className="text-right">Entrée</TableHead>
                 <TableHead className="text-right">Sortie</TableHead>
                 <TableHead className="text-right">Total</TableHead>
+                <TableHead className="text-center">Détail</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -58,7 +62,7 @@ export default async function UsagePage() {
                     index % 2 === 0 ? "bg-row hover:bg-row" : "bg-row-alt hover:bg-row-alt"
                   } ${
                     index === cycles.length - 1 ? "rounded-b-lg" : ""
-                  } cursor-pointer transition-shadow hover:ring-2 hover:ring-inset hover:ring-blue`}
+                  }`}
                 >
                   <TableCell>
                     Cycle du{" "}
@@ -76,6 +80,19 @@ export default async function UsagePage() {
                   </TableCell>
                   <TableCell className="font-medium text-right">
                     {c.tokens_total.toLocaleString("fr-FR")}
+                  </TableCell>
+                  <TableCell className="text-center">
+                    <Link
+                      href={`/usage/cycle/${c.session_id}`}
+                      className={buttonVariants({
+                        size: "sm",
+                        className:
+                          "bg-violet text-primary-foreground hover:bg-violet-dark",
+                      })}
+                    >
+                      Détail
+                      <ArrowRight />
+                    </Link>
                   </TableCell>
                 </TableRow>
               ))}

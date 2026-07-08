@@ -4,6 +4,7 @@ import Markdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import { sql } from "@/lib/db"
 import { Button } from "@/components/ui/button"
+import { ArrowLeft } from "lucide-react"
 import "@/app/(dashboard)/markdown.css"
 
 export const dynamic = "force-dynamic"
@@ -40,7 +41,8 @@ export default async function ReportPage({
         size="sm"
         className="mt-6"
       >
-        ← Retour aux rapports
+        <ArrowLeft />
+        Retour aux rapports
       </Button>
 
       <article className="markdown">

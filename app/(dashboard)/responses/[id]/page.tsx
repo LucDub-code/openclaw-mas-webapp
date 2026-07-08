@@ -4,6 +4,7 @@ import Markdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import { sql } from "@/lib/db"
 import { Button } from "@/components/ui/button"
+import { ArrowLeft } from "lucide-react"
 import "@/app/(dashboard)/markdown.css"
 
 export const dynamic = "force-dynamic"
@@ -41,7 +42,8 @@ export default async function ResponsePage({
         size="sm"
         className="mt-6"
       >
-        ← Retour aux réponses
+        <ArrowLeft />
+        Retour aux réponses
       </Button>
 
       <h1 className="text-2xl font-semibold mt-[1.6em] mx-0 mb-[0.6em]">{response.question}</h1>
