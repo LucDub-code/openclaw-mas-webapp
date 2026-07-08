@@ -26,20 +26,22 @@ export default async function Home() {
             key={report.id}
             className={index % 2 === 0 ? "bg-row" : "bg-row-alt"}
           >
-            <div className="flex items-center justify-between px-4 py-3">
-              <Link
-                href={`/reports/${report.id}`}
-                className="hover:underline"
-              >
+            <Link
+              href={`/reports/${report.id}`}
+              className={`flex items-center justify-between px-4 py-3 transition-shadow hover:ring-2 hover:ring-inset hover:ring-blue ${
+                index === 0 ? "rounded-t-lg" : ""
+              } ${index === reports.length - 1 ? "rounded-b-lg" : ""}`}
+            >
+              <span>
                 Rapport consolidé du{" "}
                 {new Date(report.date).toLocaleDateString("fr-FR", {
                   day: "numeric",
                   month: "long",
                   year: "numeric",
                 })}
-              </Link>
+              </span>
               {index === 0 && <Badge>nouveau</Badge>}
-            </div>
+            </Link>
           </li>
         ))}
       </ul>
