@@ -20,7 +20,7 @@ export default async function ResponsesPage() {
 
   return (
     <div className="mx-auto max-w-3xl">
-      <h1 className="mb-4 text-2xl font-semibold">Réponses</h1>
+      <h1 className="mb-4 text-xl font-semibold md:text-2xl">Réponses</h1>
       <ul className="rounded-lg border overflow-hidden">
         {responses.map((response, index) => (
           <li
@@ -29,9 +29,8 @@ export default async function ResponsesPage() {
           >
             <Link
               href={`/responses/${response.id}`}
-              className={`flex items-center gap-4 px-4 py-3 transition-shadow hover:ring-2 hover:ring-inset hover:ring-blue ${
-                index === 0 ? "rounded-t-lg" : ""
-              } ${index === responses.length - 1 ? "rounded-b-lg" : ""}`}
+              className={`flex items-center gap-4 px-4 py-3 text-sm transition-shadow hover:ring-2 hover:ring-inset hover:ring-blue md:text-base ${index === 0 ? "rounded-t-lg" : ""
+                } ${index === responses.length - 1 ? "rounded-b-lg" : ""}`}
             >
               <span className="shrink-0 text-sm text-muted-foreground">
                 {new Date(response.date).toLocaleDateString("fr-FR", {

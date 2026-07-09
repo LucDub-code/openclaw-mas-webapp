@@ -33,7 +33,7 @@ export default async function UsagePage() {
 
   return (
     <div className="max-w-3xl mx-auto">
-      <h1 className="mb-4 text-2xl font-semibold">Suivi conso</h1>
+      <h1 className="mb-4 text-xl font-semibold md:text-2xl">Suivi conso</h1>
 
       <Tabs defaultValue="cycles">
         <TabsList className="flex w-full gap-1 mb-6 mt-2">

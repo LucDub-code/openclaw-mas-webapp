@@ -28,7 +28,7 @@ export default async function DashboardLayout({
         <header className="flex h-14 items-center gap-2 border-b px-4">
           <SidebarTrigger />
         </header>
-        <main className="p-6">{children}</main>
+        <main className="p-4 md:p-6">{children}</main>
       </SidebarInset>
     </SidebarProvider>
   )

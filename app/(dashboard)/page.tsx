@@ -19,7 +19,7 @@ export default async function Home() {
 
   return (
     <div className="mx-auto max-w-3xl">
-      <h1 className="mb-4 text-2xl font-semibold">Rapports</h1>
+      <h1 className="mb-4 text-xl font-semibold md:text-2xl">Rapports</h1>
       <ul className="rounded-lg border overflow-hidden">
         {reports.map((report, index) => (
           <li
@@ -28,9 +28,8 @@ export default async function Home() {
           >
             <Link
               href={`/reports/${report.id}`}
-              className={`flex items-center justify-between px-4 py-3 transition-shadow hover:ring-2 hover:ring-inset hover:ring-blue ${
-                index === 0 ? "rounded-t-lg" : ""
-              } ${index === reports.length - 1 ? "rounded-b-lg" : ""}`}
+              className={`flex items-center justify-between px-4 py-3 text-sm transition-shadow hover:ring-2 hover:ring-inset hover:ring-blue md:text-base ${index === 0 ? "rounded-t-lg" : ""
+                } ${index === reports.length - 1 ? "rounded-b-lg" : ""}`}
             >
               <span>
                 Rapport consolidé du{" "}
