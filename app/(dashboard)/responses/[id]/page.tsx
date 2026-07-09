@@ -45,7 +45,7 @@ export default async function ResponsePage({
         Retour aux réponses
       </Button>
 
-      <h1 className="text-2xl font-semibold mt-[1.6em] mx-0 mb-[0.6em]">{response.question}</h1>
+      <h1 className="text-xl md:text-2xl font-semibold mt-[1.2em] md:mt-[1.6em] mx-0 mb-[0.6em]">{response.question}</h1>
 
       <article className="markdown">
         <Markdown remarkPlugins={[remarkGfm]}>{response.contenu}</Markdown>

@@ -33,10 +33,10 @@ export default async function UsagePage() {
 
   return (
     <div className="max-w-3xl mx-auto">
-      <h1 className="mb-4 text-xl font-semibold md:text-2xl">Suivi conso</h1>
+      <h1 className="mb-4 md:mb-6 text-xl font-semibold md:text-2xl">Suivi conso</h1>
 
       <Tabs defaultValue="cycles">
-        <TabsList className="flex w-full gap-1 mb-6 mt-2">
+        <TabsList className="flex w-full gap-1 mb-4 md:mb-6">
           <TabsTrigger value="cycles" className="cursor-pointer">Cycles</TabsTrigger>
           <TabsTrigger value="telegram" className="cursor-pointer">Réponses Telegram</TabsTrigger>
         </TabsList>

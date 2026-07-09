@@ -34,13 +34,13 @@ export default async function ResponseDetailPage({
         nativeButton={false}
         variant="outline"
         size="sm"
-        className="mb-6"
+        className="mb-4 md:mb-6"
       >
         <ArrowLeft />
         Retour au suivi conso
       </Button>
 
-      <h1 className="mb-6 text-2xl font-semibold">Détail de la réponse</h1>
+      <h1 className="mb-4 sm:mb-6 text-xl md:text-2xl font-semibold">Détail de la réponse</h1>
 
       <AgentUsageTable rows={rows} />
     </div>
