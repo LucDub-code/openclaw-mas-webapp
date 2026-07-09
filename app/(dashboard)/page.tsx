@@ -32,7 +32,7 @@ export default async function Home() {
                 } ${index === reports.length - 1 ? "rounded-b-lg" : ""}`}
             >
               <span>
-                Rapport consolidé du{" "}
+                Rapport<span className="hidden md:inline"> consolidé</span> du{" "}
                 {new Date(report.date).toLocaleDateString("fr-FR", {
                   day: "numeric",
                   month: "long",
