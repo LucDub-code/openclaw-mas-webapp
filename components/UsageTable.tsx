@@ -42,7 +42,7 @@ export const UsageTable = ({ rows, columnLabel, rowPrefix, hrefBase }: UsageTabl
               } ${index === rows.length - 1 ? "rounded-b-lg" : ""}`}
             >
               <TableCell>
-                {rowPrefix}{" "}
+                <span className="hidden md:inline">{rowPrefix} </span>
                 {new Date(r.date).toLocaleDateString("fr-FR", {
                   day: "numeric",
                   month: "short",

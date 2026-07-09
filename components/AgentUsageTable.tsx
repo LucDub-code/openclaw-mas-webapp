@@ -33,7 +33,7 @@ export const AgentUsageTable = ({ rows }: AgentUsageTableProps) => {
                 index % 2 === 0 ? "bg-row hover:bg-row" : "bg-row-alt hover:bg-row-alt"
               } ${index === rows.length - 1 ? "rounded-b-lg" : ""}`}
             >
-              <TableCell>{r.agent}</TableCell>
+              <TableCell className="max-w-35 truncate">{r.agent}</TableCell>
               <TableCell className="text-right">
                 {r.tokens_entree.toLocaleString("fr-FR")}
               </TableCell>

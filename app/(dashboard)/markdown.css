@@ -51,3 +51,12 @@
 .markdown th { background: var(--row-alt); font-weight: 600; }
 
 .markdown tbody tr:nth-child(even) { background: var(--row); }
+
+@media (max-width: 767px) {
+  .markdown { line-height: 1.6; }
+  .markdown h1 { font-size: 1.4rem; }
+  .markdown h2 { font-size: 1.15rem; }
+  .markdown h3 { font-size: 1rem; }
+  .markdown th,
+  .markdown td { padding: 0.4em 0.5em; }
+}
