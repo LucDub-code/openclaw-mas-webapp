@@ -6,7 +6,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 
 export type UsageRow = {
-  session_id: string
+  id: string
   date: string
   tokens_entree: number
   tokens_sortie: number
@@ -36,7 +36,7 @@ export const UsageTable = ({ rows, columnLabel, rowPrefix, hrefBase }: UsageTabl
         <TableBody>
           {rows.map((r, index) => (
             <TableRow
-              key={r.session_id}
+              key={r.id}
               className={`${
                 index % 2 === 0 ? "bg-row hover:bg-row" : "bg-row-alt hover:bg-row-alt"
               } ${index === rows.length - 1 ? "rounded-b-lg" : ""}`}
@@ -60,7 +60,7 @@ export const UsageTable = ({ rows, columnLabel, rowPrefix, hrefBase }: UsageTabl
               </TableCell>
               <TableCell className="text-center">
                 <Link
-                  href={`${hrefBase}/${r.session_id}`}
+                  href={`${hrefBase}/${r.id}`}
                   className={buttonVariants({
                     size: "sm",
                     className: "bg-violet text-primary-foreground hover:bg-violet-dark",

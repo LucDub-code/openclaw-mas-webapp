@@ -8,19 +8,19 @@ export const dynamic = "force-dynamic"
 
 export default async function UsagePage() {
   const cycles = (await sql`
-    SELECT session_id,
+    SELECT to_char(date, 'YYYY-MM-DD') AS id,
            MAX(date) AS date,
            SUM(tokens_entree)::int AS tokens_entree,
            SUM(tokens_sortie)::int AS tokens_sortie,
            SUM(tokens_total)::int AS tokens_total
     FROM conso.appels
     WHERE scenario = 'auto'
-    GROUP BY session_id
-    ORDER BY date DESC
+    GROUP BY to_char(date, 'YYYY-MM-DD')
+    ORDER BY id DESC
   `) as UsageRow[]
 
   const responses = (await sql`
-    SELECT session_id,
+    SELECT session_id AS id,
            MAX(date) AS date,
            SUM(tokens_entree)::int AS tokens_entree,
            SUM(tokens_sortie)::int AS tokens_sortie,
