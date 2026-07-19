@@ -20,7 +20,8 @@ export default async function ResponseDetailPage({
            SUM(tokens_sortie)::int AS tokens_sortie,
            SUM(tokens_total)::int AS tokens_total
     FROM conso.appels
-    WHERE session_id = ${id}
+    WHERE scenario = 'telegram'
+      AND trace_id = ${id}
     GROUP BY agent
     ORDER BY tokens_total DESC
   `) as AgentUsage[]
