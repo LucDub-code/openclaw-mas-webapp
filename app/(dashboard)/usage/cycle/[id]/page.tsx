@@ -21,7 +21,7 @@ export default async function CycleDetailPage({
            SUM(tokens_total)::int AS tokens_total
     FROM conso.appels
     WHERE scenario = 'auto'
-      AND to_char(date, 'YYYY-MM-DD') = ${id}
+      AND trace_id = ${id}
     GROUP BY agent
     ORDER BY tokens_total DESC
   `) as AgentUsage[]
