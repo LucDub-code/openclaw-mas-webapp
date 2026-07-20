@@ -16,6 +16,7 @@ export default async function ResponseDetailPage({
 
   const rows = (await sql`
     SELECT agent,
+           MIN(date) AS date,
            SUM(tokens_entree)::int AS tokens_entree,
            SUM(tokens_sortie)::int AS tokens_sortie,
            SUM(tokens_total)::int AS tokens_total
@@ -24,7 +25,7 @@ export default async function ResponseDetailPage({
       AND trace_id = ${id}
     GROUP BY agent
     ORDER BY tokens_total DESC
-  `) as AgentUsage[]
+  `) as (AgentUsage & { date: string })[]
 
   if (rows.length === 0) notFound()
 
@@ -41,7 +42,19 @@ export default async function ResponseDetailPage({
         Retour au suivi conso
       </Button>
 
-      <h1 className="mb-4 sm:mb-6 text-xl md:text-2xl font-semibold">Détail de la réponse</h1>
+      <h1 className="mb-4 sm:mb-6 text-xl md:text-2xl font-semibold">
+        Détail de la réponse du{" "}
+        {new Date(rows[0].date).toLocaleDateString("fr-FR", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        })}
+        {" à "}
+        {new Date(rows[0].date).toLocaleTimeString("fr-FR", {
+          hour: "2-digit",
+          minute: "2-digit",
+        })}
+      </h1>
 
       <AgentUsageTable rows={rows} />
     </div>

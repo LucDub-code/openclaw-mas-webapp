@@ -22,7 +22,7 @@ export default async function UsagePage() {
 
   const responses = (await sql`
     SELECT trace_id AS id,
-           MAX(date) AS date,
+           MIN(date) AS date,
            SUM(tokens_entree)::int AS tokens_entree,
            SUM(tokens_sortie)::int AS tokens_sortie,
            SUM(tokens_total)::int AS tokens_total
@@ -58,6 +58,7 @@ export default async function UsagePage() {
             columnLabel="Réponse"
             rowPrefix="Réponse du"
             hrefBase="/usage/response"
+            showTime
           />
         </TabsContent>
       </Tabs>

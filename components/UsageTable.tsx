@@ -17,10 +17,11 @@ type UsageTableProps = {
   rows: UsageRow[]
   columnLabel: string 
   rowPrefix: string  
-  hrefBase: string 
+  hrefBase: string
+  showTime?: boolean
 }
 
-export const UsageTable = ({ rows, columnLabel, rowPrefix, hrefBase }: UsageTableProps) => {
+export const UsageTable = ({ rows, columnLabel, rowPrefix, hrefBase, showTime = false }: UsageTableProps) => {
   return (
     <div className="overflow-hidden rounded-lg border">
       <Table>
@@ -48,6 +49,10 @@ export const UsageTable = ({ rows, columnLabel, rowPrefix, hrefBase }: UsageTabl
                   month: "short",
                   year: "numeric",
                 })}
+                {showTime && ` à ${new Date(r.date).toLocaleTimeString("fr-FR", {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}`}
               </TableCell>
               <TableCell className="text-right">
                 {r.tokens_entree.toLocaleString("fr-FR")}
