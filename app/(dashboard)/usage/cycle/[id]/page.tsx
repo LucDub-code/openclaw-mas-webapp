@@ -16,6 +16,7 @@ export default async function CycleDetailPage({
 
   const rows = (await sql`
     SELECT agent,
+           MAX(date) AS date,
            SUM(tokens_entree)::int AS tokens_entree,
            SUM(tokens_sortie)::int AS tokens_sortie,
            SUM(tokens_total)::int AS tokens_total
@@ -24,7 +25,7 @@ export default async function CycleDetailPage({
       AND trace_id = ${id}
     GROUP BY agent
     ORDER BY tokens_total DESC
-  `) as AgentUsage[]
+  `) as (AgentUsage & { date: string })[]
 
   if (rows.length === 0) notFound()
 
@@ -41,7 +42,14 @@ export default async function CycleDetailPage({
         Retour au suivi conso
       </Button>
 
-      <h1 className="mb-4 sm:mb-6 text-xl md:text-2xl font-semibold">Détail du cycle</h1>
+      <h1 className="mb-4 sm:mb-6 text-xl md:text-2xl font-semibold">
+        Détail du cycle du{" "}
+        {new Date(rows[0].date).toLocaleDateString("fr-FR", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        })}
+      </h1>
 
       <AgentUsageTable rows={rows} />
     </div>
