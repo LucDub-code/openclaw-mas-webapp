@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { HomeIcon, MessageSquareIcon, BarChart3Icon, GaugeIcon } from "lucide-react"
+import { HomeIcon, MessageSquareIcon, BarChart3Icon, GaugeIcon, NotebookPenIcon } from "lucide-react"
 import {
   Sidebar,
   SidebarContent,
@@ -19,6 +19,7 @@ const navItems = [
   { title: "Accueil", url: "/", icon: HomeIcon },
   { title: "Réponses", url: "/responses", icon: MessageSquareIcon },
   { title: "Suivi conso", url: "/usage", icon: BarChart3Icon },
+  { title: "Journal de test", url: "/journal", icon: NotebookPenIcon },
 ]
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
